@@ -1,0 +1,13 @@
+﻿
+<script>
+    $.ajax({
+        url: '/Users/Table?page=1',
+        method: 'GET',
+        success: function (data) {
+            $('#dt-users_table').html(data)
+        },
+        error: function (data) {
+            $('#dt-users_table').html("table error")
+        },
+    });
+</script>

@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "";    
+}
+
+<!DOCTYPE html>
+<html lang="@MvcApplication.language">
+
+<head>
+    <base href="../../../">
+    <meta charset="utf-8" />
+    <title>@LanguageHelper.GetString("Site.Title")</title>
+    <meta name="description" content="Login page example" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link href="assets/css/pages/login/login-1.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <script>
+        function cl(language) {
+            $.ajax({
+                url: "/Security/ChangeLanguage?language=" + language,
+                type: 'get',
+                success: function (data) {
+                    document.location.reload();
+                }
+            });
+        };
+    </script>
+</head>
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+
+    <div class="d-flex flex-column flex-root">
+        <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white" id="kt_login">
+            <div class="login-aside d-flex flex-column flex-row-auto" style="background-image: url(assets/media/svg/illustrations/logo.png)">
+                <div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center" style="background-image: url(assets/media/svg/illustrations/logo.png)"></div>
+            </div>
+            <div class="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
+                <div class="d-flex flex-column-fluid flex-center">
+                    <div class="login-form login-signin">
+                        @using (Html.BeginForm("Login", "Security"))
+                        {
+                            <div class="pb-13 pt-lg-0 pt-5">
+                                <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">@LanguageHelper.GetString("Login.Welcome")</h3>
+                            </div>
+                            <div class="form-group">
+                                @Html.Label(@LanguageHelper.GetString("Login.Username"), htmlAttributes: new { @class = "font-size-h6 font-weight-bolder text-dark" })
+                                @Html.TextBox("username", "", htmlAttributes: new { @class = "form-control form-control-solid h-auto py-6 px-6 rounded-lg" })
+                            </div>
+                            <div class="form-group">
+                                @Html.Label(@LanguageHelper.GetString("Login.Password"), htmlAttributes: new { @class = "font-size-h6 font-weight-bolder text-dark" })
+                                @Html.TextBox("password", "", htmlAttributes: new { type="password", @class = "form-control form-control-solid h-auto py-6 px-6 rounded-lg" })
+                            </div>
+                            <div class="pb-lg-0 pb-5">
+                                <input id="Submit1" type="submit" value="@LanguageHelper.GetString("Login.Login")" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3" />
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            @{
+                Html.RenderAction("LanguageChanger", "Security");
+            }
+        </div>
+    </div>
+    <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
+
+    <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script>
+    <script src="assets/js/pages/custom/login/login-general.js"></script>
+</body>
+</html>

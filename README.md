@@ -102,9 +102,9 @@ As mentioned above due to sticking with SOLID principle we can add new features.
 
 ![](screenshots/userpage.png)
 
-![](screenshots/createnewuser.png)
-
 ![](screenshots/showuser.png)
+
+![](screenshots/createnewuser.png)
 
 ![](screenshots/quickuserwindow.png)
 

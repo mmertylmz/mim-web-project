@@ -10,7 +10,7 @@ MIM is modular web application project that designed in .NET Framework with usin
 - Modular database relationship.
 - You can use create, read, update, and delete (CRUD) operations.
 
-Database relationship has been created with Entity Framework 6 (Codefirst Approach). In database relationship we have 3 different types of relations in this database: _one-to-one_, _one-to-many_, and. _many-to-many_. (new sql table like _GroupUsers_ etc.).
+Database relationship has been created with Entity Framework 6 (Codefirst Approach). We have 3 different types of relations in this database: _one-to-one_, _one-to-many_, and _many-to-many_. (new sql tables like _GroupUsers_ etc.).
 
 The database has been created flexibly (effortless to add new tables) for easy to use by all companies that will be use this web application. Right now  there are 6 SQL table models _(Department, Grant, Group, License, Module, Organization, Title and User)_ in the database and also there will be new models to be added for modular database structure in the future.
 

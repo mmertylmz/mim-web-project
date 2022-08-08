@@ -98,7 +98,7 @@ As mentioned above due to sticking with SOLID principle we can add new features.
 
 
 # Screenshots from project
-![](screenshots/loginpage.png)
+![Deneme](screenshots/loginpage.png)
 
 ![](screenshots/userpage.png)
 

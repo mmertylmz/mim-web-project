@@ -98,14 +98,21 @@ As mentioned above due to sticking with SOLID principle we can add new features.
 
 
 # Screenshots from project
-![Deneme](screenshots/loginpage.png)
 
+## Login Page
+![](screenshots/loginpage.png)
+
+## Users Page
 ![](screenshots/userpage.png)
 
+## Show a User
 ![](screenshots/showuser.png)
 
+##Create a new User
 ![](screenshots/createnewuser.png)
 
+## QuickUser Window
 ![](screenshots/quickuserwindow.png)
 
+##Aside Bar
 ![](screenshots/asidebar.png)

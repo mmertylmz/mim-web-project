@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class lang {
@@ -70,6 +70,177 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aktif.
+        /// </summary>
+        internal static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanıcı Sayısı.
+        /// </summary>
+        internal static string Chart_Title_UserCount {
+            get {
+                return ResourceManager.GetString("Chart.Title.UserCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oluştur.
+        /// </summary>
+        internal static string Crud_Create {
+            get {
+                return ResourceManager.GetString("Crud.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sil.
+        /// </summary>
+        internal static string Crud_Delete {
+            get {
+                return ResourceManager.GetString("Crud.Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Düzenle.
+        /// </summary>
+        internal static string Crud_Edit {
+            get {
+                return ResourceManager.GetString("Crud.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departmanlar-&gt;Tüm.
+        /// </summary>
+        internal static string Departments__All {
+            get {
+                return ResourceManager.GetString("Departments->All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departmanlar-&gt;Oluştur.
+        /// </summary>
+        internal static string Departments__Create {
+            get {
+                return ResourceManager.GetString("Departments->Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departmanlar-&gt;Sil.
+        /// </summary>
+        internal static string Departments__Delete {
+            get {
+                return ResourceManager.GetString("Departments->Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departmanlar-&gt;Düzenle.
+        /// </summary>
+        internal static string Departments__Edit {
+            get {
+                return ResourceManager.GetString("Departments->Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departmanlar-&gt;Göster.
+        /// </summary>
+        internal static string Departments__Show {
+            get {
+                return ResourceManager.GetString("Departments->Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departmanlar-&gt;Tablo.
+        /// </summary>
+        internal static string Departments__Table {
+            get {
+                return ResourceManager.GetString("Departments->Table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yeni Departman Oluştur.
+        /// </summary>
+        internal static string Department_AddNew {
+            get {
+                return ResourceManager.GetString("Department.AddNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departman Açıklaması.
+        /// </summary>
+        internal static string Department_Description {
+            get {
+                return ResourceManager.GetString("Department.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departman Yöneticisi.
+        /// </summary>
+        internal static string Department_Manager {
+            get {
+                return ResourceManager.GetString("Department.Manager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departman Oluştur.
+        /// </summary>
+        internal static string Department_ModalTitle_Add {
+            get {
+                return ResourceManager.GetString("Department.ModalTitle.Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bu departmanı silmek istediğinize emin misiniz ?.
+        /// </summary>
+        internal static string Department_ModalTitle_Delete {
+            get {
+                return ResourceManager.GetString("Department.ModalTitle.Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departman Düzenle.
+        /// </summary>
+        internal static string Department_ModalTitle_Edit {
+            get {
+                return ResourceManager.GetString("Department.ModalTitle.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departman Detayları.
+        /// </summary>
+        internal static string Department_ModalTitle_Show {
+            get {
+                return ResourceManager.GetString("Department.ModalTitle.Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departman Adı.
+        /// </summary>
+        internal static string Department_Name {
+            get {
+                return ResourceManager.GetString("Department.Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Seçiniz.
         /// </summary>
         internal static string Dropdown_First {
@@ -84,6 +255,186 @@ namespace Resources {
         internal static string en {
             get {
                 return ResourceManager.GetString("en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gruplar-&gt;Tüm.
+        /// </summary>
+        internal static string Groups__All {
+            get {
+                return ResourceManager.GetString("Groups->All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gruplar-&gt;Oluştur.
+        /// </summary>
+        internal static string Groups__Create {
+            get {
+                return ResourceManager.GetString("Groups->Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gruplar-&gt;Sil.
+        /// </summary>
+        internal static string Groups__Delete {
+            get {
+                return ResourceManager.GetString("Groups->Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gruplar-&gt;Düzenle.
+        /// </summary>
+        internal static string Groups__Edit {
+            get {
+                return ResourceManager.GetString("Groups->Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gruplar-&gt;Göster.
+        /// </summary>
+        internal static string Groups__Show {
+            get {
+                return ResourceManager.GetString("Groups->Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gruplar-&gt;Tablo.
+        /// </summary>
+        internal static string Groups__Table {
+            get {
+                return ResourceManager.GetString("Groups->Table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yeni Grup Oluştur.
+        /// </summary>
+        internal static string Group_AddNew {
+            get {
+                return ResourceManager.GetString("Group.AddNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grup Açıklaması.
+        /// </summary>
+        internal static string Group_Description {
+            get {
+                return ResourceManager.GetString("Group.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yetki Sayısı.
+        /// </summary>
+        internal static string Group_GrantCount {
+            get {
+                return ResourceManager.GetString("Group.GrantCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yetkiler.
+        /// </summary>
+        internal static string Group_Grants {
+            get {
+                return ResourceManager.GetString("Group.Grants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grup Oluştur.
+        /// </summary>
+        internal static string Group_ModalTitle_Add {
+            get {
+                return ResourceManager.GetString("Group.ModalTitle.Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bu grubu silmek istediğinize emin misiniz ?.
+        /// </summary>
+        internal static string Group_ModalTitle_Delete {
+            get {
+                return ResourceManager.GetString("Group.ModalTitle.Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grup Düzenle.
+        /// </summary>
+        internal static string Group_ModalTitle_Edit {
+            get {
+                return ResourceManager.GetString("Group.ModalTitle.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grup Detayları.
+        /// </summary>
+        internal static string Group_ModalTitle_Show {
+            get {
+                return ResourceManager.GetString("Group.ModalTitle.Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grup Adı.
+        /// </summary>
+        internal static string Group_Name {
+            get {
+                return ResourceManager.GetString("Group.Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yönetim Paneli.
+        /// </summary>
+        internal static string HomePage_ManagementSystem {
+            get {
+                return ResourceManager.GetString("HomePage.ManagementSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ana Sayfa.
+        /// </summary>
+        internal static string HomePage_Title {
+            get {
+                return ResourceManager.GetString("HomePage.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dosya Seçiniz.
+        /// </summary>
+        internal static string Label_ChooseFile {
+            get {
+                return ResourceManager.GetString("Label.ChooseFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yanlış Kullanıcı Adı.
+        /// </summary>
+        internal static string Login_Error_NoUser {
+            get {
+                return ResourceManager.GetString("Login.Error.NoUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yanlış Parola.
+        /// </summary>
+        internal static string Login_Error_Password {
+            get {
+                return ResourceManager.GetString("Login.Error.Password", resourceCulture);
             }
         }
         
@@ -115,11 +466,200 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hoşgeldiniz.
+        ///   Looks up a localized string similar to MIM Yönetim Sistemine Hoşgeldiniz.
         /// </summary>
         internal static string Login_Welcome {
             get {
                 return ResourceManager.GetString("Login.Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sistem Yöneticisi.
+        /// </summary>
+        internal static string Manager {
+            get {
+                return ResourceManager.GetString("Manager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ekle.
+        /// </summary>
+        internal static string Modal_Button_Add {
+            get {
+                return ResourceManager.GetString("Modal.Button.Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İptal.
+        /// </summary>
+        internal static string Modal_Button_Cancel {
+            get {
+                return ResourceManager.GetString("Modal.Button.Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oluştur.
+        /// </summary>
+        internal static string Modal_Button_Create {
+            get {
+                return ResourceManager.GetString("Modal.Button.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sil.
+        /// </summary>
+        internal static string Modal_Button_Delete {
+            get {
+                return ResourceManager.GetString("Modal.Button.Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Düzenle.
+        /// </summary>
+        internal static string Modal_Button_Edit {
+            get {
+                return ResourceManager.GetString("Modal.Button.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Değişiklikleri Kaydet.
+        /// </summary>
+        internal static string Modal_Button_SaveChanges {
+            get {
+                return ResourceManager.GetString("Modal.Button.SaveChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departman.
+        /// </summary>
+        internal static string Model_Department {
+            get {
+                return ResourceManager.GetString("Model.Department", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departmanlar.
+        /// </summary>
+        internal static string Model_Departments {
+            get {
+                return ResourceManager.GetString("Model.Departments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grup.
+        /// </summary>
+        internal static string Model_Group {
+            get {
+                return ResourceManager.GetString("Model.Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gruplar.
+        /// </summary>
+        internal static string Model_Groups {
+            get {
+                return ResourceManager.GetString("Model.Groups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ünvan.
+        /// </summary>
+        internal static string Model_Title {
+            get {
+                return ResourceManager.GetString("Model.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ünvanlar.
+        /// </summary>
+        internal static string Model_Titles {
+            get {
+                return ResourceManager.GetString("Model.Titles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oluşturma işlemi Başarısız.
+        /// </summary>
+        internal static string Model_Toastr_AddError {
+            get {
+                return ResourceManager.GetString("Model.Toastr.AddError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oluşturma işlemi Başarılı.
+        /// </summary>
+        internal static string Model_Toastr_AddSuccess {
+            get {
+                return ResourceManager.GetString("Model.Toastr.AddSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Silme işlemi Başarısız.
+        /// </summary>
+        internal static string Model_Toastr_DeleteError {
+            get {
+                return ResourceManager.GetString("Model.Toastr.DeleteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Silme işlemi Başarılı.
+        /// </summary>
+        internal static string Model_Toastr_DeleteSuccess {
+            get {
+                return ResourceManager.GetString("Model.Toastr.DeleteSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Düzenleme işlemi Başarısız.
+        /// </summary>
+        internal static string Model_Toastr_EditError {
+            get {
+                return ResourceManager.GetString("Model.Toastr.EditError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Düzenleme işlemi Başarılı.
+        /// </summary>
+        internal static string Model_Toastr_EditSuccess {
+            get {
+                return ResourceManager.GetString("Model.Toastr.EditSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yetkiniz yok..
+        /// </summary>
+        internal static string Model_Toastr_NoGrant {
+            get {
+                return ResourceManager.GetString("Model.Toastr.NoGrant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kendi kullanıcınızı silemezsiniz..
+        /// </summary>
+        internal static string Model_Toastr_SameUser {
+            get {
+                return ResourceManager.GetString("Model.Toastr.SameUser", resourceCulture);
             }
         }
         
@@ -147,6 +687,15 @@ namespace Resources {
         internal static string NavBar_Hi {
             get {
                 return ResourceManager.GetString("NavBar.Hi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pasif.
+        /// </summary>
+        internal static string Passive {
+            get {
+                return ResourceManager.GetString("Passive", resourceCulture);
             }
         }
         
@@ -250,11 +799,38 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MIM Yönetim Sistemine Hoşgeldiniz.
+        ///   Looks up a localized string similar to MIM Yönetim Sistemi.
         /// </summary>
         internal static string Site_Title {
             get {
                 return ResourceManager.GetString("Site.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standart Kullanıcı.
+        /// </summary>
+        internal static string StandartUser {
+            get {
+                return ResourceManager.GetString("StandartUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aksiyonlar.
+        /// </summary>
+        internal static string Table_Action {
+            get {
+                return ResourceManager.GetString("Table.Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kayıt Bulunamadı.
+        /// </summary>
+        internal static string Table_NoRecord {
+            get {
+                return ResourceManager.GetString("Table.NoRecord", resourceCulture);
             }
         }
         
@@ -277,7 +853,61 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yeni Ünvan Ekle.
+        ///   Looks up a localized string similar to Ünvanlar-&gt;Tüm.
+        /// </summary>
+        internal static string Titles__All {
+            get {
+                return ResourceManager.GetString("Titles->All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ünvanlar-&gt;Oluştur.
+        /// </summary>
+        internal static string Titles__Create {
+            get {
+                return ResourceManager.GetString("Titles->Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ünvanlar-&gt;Sil.
+        /// </summary>
+        internal static string Titles__Delete {
+            get {
+                return ResourceManager.GetString("Titles->Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ünvanlar-&gt;Düzenle.
+        /// </summary>
+        internal static string Titles__Edit {
+            get {
+                return ResourceManager.GetString("Titles->Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ünvanlar-&gt;Göster.
+        /// </summary>
+        internal static string Titles__Show {
+            get {
+                return ResourceManager.GetString("Titles->Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ünvanlar-&gt;Tablo.
+        /// </summary>
+        internal static string Titles__Table {
+            get {
+                return ResourceManager.GetString("Titles->Table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yeni Ünvan Oluştur.
         /// </summary>
         internal static string Title_AddNew {
             get {
@@ -295,7 +925,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ünvan Ekle.
+        ///   Looks up a localized string similar to Ünvan Oluştur.
         /// </summary>
         internal static string Title_ModalTitle_Add {
             get {
@@ -358,11 +988,83 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yeni Kullanıcı Ekle.
+        ///   Looks up a localized string similar to Kullanıcılar-&gt;Tüm.
+        /// </summary>
+        internal static string Users__All {
+            get {
+                return ResourceManager.GetString("Users->All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanıcılar-&gt;Oluştur.
+        /// </summary>
+        internal static string Users__Create {
+            get {
+                return ResourceManager.GetString("Users->Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanıcılar-&gt;Sil.
+        /// </summary>
+        internal static string Users__Delete {
+            get {
+                return ResourceManager.GetString("Users->Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanıcılar-&gt;Düzenle.
+        /// </summary>
+        internal static string Users__Edit {
+            get {
+                return ResourceManager.GetString("Users->Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanıcılar-&gt;Göster.
+        /// </summary>
+        internal static string Users__Show {
+            get {
+                return ResourceManager.GetString("Users->Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanıcılar-&gt;Tablo.
+        /// </summary>
+        internal static string Users__Table {
+            get {
+                return ResourceManager.GetString("Users->Table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yeni Kullanıcı Oluştur.
         /// </summary>
         internal static string User_AddNew {
             get {
                 return ResourceManager.GetString("User.AddNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanıcı tüm yetkilere sahip..
+        /// </summary>
+        internal static string User_AllGrants {
+            get {
+                return ResourceManager.GetString("User.AllGrants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avatar Resmi.
+        /// </summary>
+        internal static string User_AvatarUrl {
+            get {
+                return ResourceManager.GetString("User.AvatarUrl", resourceCulture);
             }
         }
         
@@ -372,6 +1074,15 @@ namespace Resources {
         internal static string User_BornDate {
             get {
                 return ResourceManager.GetString("User.BornDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departman.
+        /// </summary>
+        internal static string User_Department {
+            get {
+                return ResourceManager.GetString("User.Department", resourceCulture);
             }
         }
         
@@ -394,11 +1105,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Genel.
+        /// </summary>
+        internal static string User_General {
+            get {
+                return ResourceManager.GetString("User.General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gruplar.
+        /// </summary>
+        internal static string User_Groups {
+            get {
+                return ResourceManager.GetString("User.Groups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hesabı Aktifleştir?.
         /// </summary>
-        internal static string User_isActive {
+        internal static string User_IsActive {
             get {
-                return ResourceManager.GetString("User.isActive", resourceCulture);
+                return ResourceManager.GetString("User.IsActive", resourceCulture);
             }
         }
         
@@ -412,11 +1141,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kullanıcı Ekle.
+        ///   Looks up a localized string similar to Kullanıcı Oluştur.
         /// </summary>
         internal static string User_ModalTitle_Add {
             get {
                 return ResourceManager.GetString("User.ModalTitle.Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bu kullanıcıyı silmek istediğinize emin misiniz ?.
+        /// </summary>
+        internal static string User_ModalTitle_Delete {
+            get {
+                return ResourceManager.GetString("User.ModalTitle.Delete", resourceCulture);
             }
         }
         
@@ -475,11 +1213,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Departmanı Yok.
+        /// </summary>
+        internal static string User_Table_NoDepartment {
+            get {
+                return ResourceManager.GetString("User.Table.NoDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ünvanı yok.
+        /// </summary>
+        internal static string User_Table_NoTitle {
+            get {
+                return ResourceManager.GetString("User.Table.NoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ünvan.
         /// </summary>
-        internal static string User_TitleID {
+        internal static string User_Title {
             get {
-                return ResourceManager.GetString("User.TitleID", resourceCulture);
+                return ResourceManager.GetString("User.Title", resourceCulture);
             }
         }
         
@@ -489,6 +1245,60 @@ namespace Resources {
         internal static string User_Username {
             get {
                 return ResourceManager.GetString("User.Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail adresi giriniz..
+        /// </summary>
+        internal static string User_Validate_Email {
+            get {
+                return ResourceManager.GetString("User.Validate.Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lütfen isim giriniz..
+        /// </summary>
+        internal static string User_Validate_Firstname {
+            get {
+                return ResourceManager.GetString("User.Validate.Firstname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bir ad en az 3 karakterli olmalıdır..
+        /// </summary>
+        internal static string User_Validate_Firstname2 {
+            get {
+                return ResourceManager.GetString("User.Validate.Firstname2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lütfen soyisim giriniz..
+        /// </summary>
+        internal static string User_Validate_Lastname {
+            get {
+                return ResourceManager.GetString("User.Validate.Lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lütfen takma isim giriniz.
+        /// </summary>
+        internal static string User_Validate_Nickname {
+            get {
+                return ResourceManager.GetString("User.Validate.Nickname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lütfen kullanıcı adı giriniz..
+        /// </summary>
+        internal static string User_Validate_Username {
+            get {
+                return ResourceManager.GetString("User.Validate.Username", resourceCulture);
             }
         }
     }

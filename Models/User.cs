@@ -13,16 +13,26 @@ namespace MIM.Models
 {
     public class User
     {
-        public static User current = new User(true);
-
+        public static User Current()
+        {
+            int userid = 0;
+            if (HttpContext.Current.Session["current_userID"] != null)
+                userid = ((int)HttpContext.Current.Session["current_userID"]);
+            else
+                return new User(true);
+            
+            MIMDBContext db = new MIMDBContext();
+            return db.Users.Where(x => x.UserID == userid).First();
+        }
         public User()
         {
             Groups = new List<Group>();
         }
+
         public User(bool isDefault=true)
         {
             Firstname = Lastname = Nickname = Username = Password = "Default";
-            Email = "Default@default.com";
+            Email = "";
            
             Title = new Title() { Name = "Default" };
            
@@ -78,6 +88,7 @@ namespace MIM.Models
         public string hasAvatar() { return ((AvatarUrl == null) || (AvatarUrl == "")) ? "noavatar.png" : AvatarUrl; }
         public bool isGranted(string[] controller) // Gelen controller'lardan herhangi bir metoda yetki varsa yetki ver
         {
+            string[] wanted_grants = new string[] { "All", "Table" };
             bool isgranted = false;
             MIMDBContext db = new MIMDBContext();
             User user = db.Users.Find(UserID);
@@ -90,24 +101,33 @@ namespace MIM.Models
                     grants.Add(grt);
 
             
-            isgranted = grants.Find(x => controller.Contains(x.Controller)) != null;
+            isgranted = grants.Find(x => wanted_grants.Contains(x.Action)) != null;
             if (isgranted) return true; // Kullanıcı Belirtilen controller üzerinde All yetkisine sahipse yetki ver
             isgranted = grants.Find(x => controller.Contains(x.Controller)) != null;
             return isgranted;
         }
 
-        public string GetShortName() //Layout Kısa Ad
+        public string GetShortName()
         {
-            return current.Firstname.Length > 15 ? current.Firstname.Substring(0, current.Firstname.Substring(0, 15)
-                .LastIndexOf(" ")) + "..." : current.Firstname + ".";
+            if (this.Firstname == " ") return "";
+            return this.Firstname.Length > 15 ? this.Firstname.Substring(0, this.Firstname.Substring(0, 15)
+                .LastIndexOf(" ")) + "..." : this.Firstname + ".";
         }
 
-        public string GetShortSymbol() //Layout Kısa Sembol
+        public string GetShortSymbol()
         {
-            string[] names = current.fullname.Split(' ');
-            //return current.symbol.Length > 3 ? current.symbol.Substring(0, 3) : current.symbol;
+            if (this.fullname == " ") return "";
+            string[] names = this.fullname.Split(' ');
             return names.First().Substring(0, 1) + names.Last().Substring(0, 1);
         }
         #endregion "Method + Properties"
+    }
+
+    public class UserValidator : AbstractValidator<MIM.Models.User>
+    {
+        public UserValidator()
+        {
+            RuleFor(x => x.Firstname).NotEmpty().WithMessage("İsim Boş olamaz");
+        }
     }
 }

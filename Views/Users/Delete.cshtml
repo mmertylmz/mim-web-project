@@ -3,9 +3,8 @@
     Layout = null;
     ViewBag.Title = LanguageHelper.GetString("Model.Users");
     string modal_size = "modal-lg"; // "modal-sm" "modal", "modal-lg" "modal-xl"
-    bool grant = Model != null;
 }
-@if (grant)
+@if (ViewBag.grant && !ViewBag.owner)
 {
     <div class="modal" id="user-modal">
         <div class="modal-dialog modal-dialog-centered @modal_size">
@@ -50,7 +49,7 @@
                                 @Html.LabelFor(model => model.Password, @LanguageHelper.GetString("User.Password"), htmlAttributes: new { @class = "control-label font-weight-bold my-auto" })
                                 <hr style="width:50%" />
 
-                                @Html.DisplayFor(model => model.Password)
+                                @Html.Raw("\u2022\u2022\u2022\u2022\u2022")
                             </div>
                             <div style="width:33%">
                                 @Html.LabelFor(model => model.Email, @LanguageHelper.GetString("User.Email"), htmlAttributes: new { @class = "control-label font-weight-bold my-auto" })
@@ -70,7 +69,7 @@
                                 @Html.DisplayFor(model => model.BornDate)
                             </div>
                             <div style="width:33%">
-                                @Html.LabelFor(model => model.IsActive, @LanguageHelper.GetString("User.isActive"), htmlAttributes: new { @class = "control-label font-weight-bold my-auto" })
+                                @Html.LabelFor(model => model.IsActive, @LanguageHelper.GetString("User.IsActive"), htmlAttributes: new { @class = "control-label font-weight-bold my-auto" })
                                 <hr style="width:50%" />
 
                                 <label>
@@ -123,7 +122,16 @@
 }
 else
 {
-    <script>
-    toastr.error('@LanguageHelper.GetString("Model.Toastr.NoGrant")', '@LanguageHelper.GetString("Model.User")')
-    </script>
+    if (ViewBag.owner)
+    {
+        <script>
+        toastr.error('@LanguageHelper.GetString("Model.Toastr.SameUser")', '@LanguageHelper.GetString("Model.User")')
+        </script>
+    }
+    else
+    {
+        <script>
+        toastr.error('@LanguageHelper.GetString("Model.Toastr.NoGrant")', '@LanguageHelper.GetString("Model.User")')
+        </script>
+    }
 }

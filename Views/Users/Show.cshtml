@@ -2,31 +2,32 @@
 @{
     Layout = null;
     string modal_size = "modal-lg"; // "modal-sm" "modal", "modal-lg" "modal-xl"
-    bool grant = Model != null;
 }
-@if (grant)
+@if (ViewBag.grant)
 {
     <div class="modal" id="user-modal">
         <div class="modal-dialog modal-dialog-centered @modal_size">
             <div class="modal-content">
                 <div class="card card-custom">
                     <div class="card-header card-header-tabs-line">
+                        
                         <div class="card-title">
+                            <img class="symbol" style="margin-right:10px" width="100" height="100" src="/assets/media/AvatarImages/@Model.hasAvatar()" />
                             <h3 class="card-label">@Model.fullname</h3>
                         </div>
                         <div class="card-toolbar">
                             <ul class="nav nav-tabs nav-bold nav-tabs-line">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#kt_tab_pane_1_2">Genel</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#kt_tab_pane_1_2">@LanguageHelper.GetString("User.General")</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_2_2">Ünvan</a>
+                                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_2_2">@LanguageHelper.GetString("Model.Title")</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_3_2">Departman</a>
+                                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_3_2">@LanguageHelper.GetString("Model.Department")</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_4_2">Grup</a>
+                                    <a class="nav-link" data-toggle="tab" href="#kt_tab_pane_4_2">@LanguageHelper.GetString("Model.Group")</a>
                                 </li>
                             </ul>
                         </div>
@@ -69,7 +70,7 @@
                                             @Html.LabelFor(model => model.Password, @LanguageHelper.GetString("User.Password"), htmlAttributes: new { @class = "control-label font-weight-bold my-auto" })
                                             <hr style="width:50%" />
 
-                                            @Html.DisplayFor(model => model.Password)
+                                            @Html.Raw("\u2022\u2022\u2022\u2022\u2022")
                                         </div>
                                         <div style="width:33%">
                                             @Html.LabelFor(model => model.Email, @LanguageHelper.GetString("User.Email"), htmlAttributes: new { @class = "control-label font-weight-bold my-auto" })
@@ -89,7 +90,7 @@
                                             @Html.DisplayFor(model => model.BornDate)
                                         </div>
                                         <div style="width:33%">
-                                            @Html.LabelFor(model => model.IsActive, @LanguageHelper.GetString("User.isActive"), htmlAttributes: new { @class = "control-label font-weight-bold my-auto" })
+                                            @Html.LabelFor(model => model.IsActive, @LanguageHelper.GetString("User.IsActive"), htmlAttributes: new { @class = "control-label font-weight-bold my-auto" })
                                             <hr style="width:50%" />
 
                                             <label>
@@ -142,16 +143,19 @@
                                 </center>
                             </div>
                             <div class="tab-pane fade" id="kt_tab_pane_4_2" role="tabpanel">
-                                <center>
-                                    <div class="row align-items-center">
-                                        <table class="table table-hover">
-                                            <tr>
-                                                <td>#</td>
-                                                <td>@LanguageHelper.GetString("Group.Name")</td>
-                                                <td>@LanguageHelper.GetString("Group.Grants")</td>
-                                            </tr>
-                                            @foreach (var item in Model.Groups)
-                                            {
+                                @if (!Model.SuperAdmin)
+                                {
+                                    <center>
+                                        <div class="row align-items-center">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <td>#</td>
+                                                    <td>@LanguageHelper.GetString("Group.Name")</td>
+                                                    <td>@LanguageHelper.GetString("Group.Grants")</td>
+                                                </tr>
+
+                                                @foreach (var item in Model.Groups)
+                                                {
                                                 <tr>
                                                     <td>@item.GroupID</td>
                                                     <td>@item.Name</td>
@@ -165,11 +169,16 @@
                                                     </td>
 
                                                 </tr>
-                                            }
-
-                                        </table>
-                                    </div>
-                                </center>
+                                                }
+                                            </table>
+                                        </div>
+                                    </center>
+                                }
+                                else
+                                {
+                                    <center><span class="text-danger">@LanguageHelper.GetString("User.AllGrants")</span></center>
+                                    
+                                }
                             </div>
                         </div>
                     </div>

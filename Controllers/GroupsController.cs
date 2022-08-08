@@ -23,17 +23,33 @@ namespace MIM.Controllers
             return View();
         }
 
-        // GET: /Groups/Table
-        public ActionResult Table(int? page)
+        public IPagedList<Group> GetGroupList(Group group, int? page,int? Count)
         {
             var _page = page ?? 1;
-            var groups = db.Groups.Include(u => u.Organization).Where(x => x.OrganizationID == Organization.current.OrganizationID).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            var groups = db.Groups.Include(u => u.Organization).Where(x => x.OrganizationID == Organization.current.OrganizationID);
+            IPagedList<Group> filtering_group = groups.ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (group.GroupID > 0) filtering_group = filtering_group.Where(x => x.GroupID == group.GroupID).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (group.Name != null) filtering_group = filtering_group.Where(x => x.Name.Contains(group.Name)).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (group.Description != null) filtering_group = filtering_group.Where(x => x.Description.Contains(group.Description)).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (Count> 0) filtering_group = filtering_group.Where(x => x.Grants.Count() >= Count).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            return filtering_group;
+        }
+
+        // GET: /Groups/Table
+        public ActionResult Table(Group group,int? page,int? count)
+        {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Table", "Groups");
+            if (!grant) return View("");
+            var _page = page ?? 1;
+            var groups = GetGroupList(group, page, count);
             return View(groups);
         }
 
         // GET: Groups/Details/5
         public async Task<ActionResult> Show(int? id)
         {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Show", "Groups");
+            if (!grant) return View("");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -49,6 +65,8 @@ namespace MIM.Controllers
         // GET: Groups/Create
         public ActionResult Create()
         {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Create", "Groups");
+            if (!grant) return View("");
             ViewBag.OrganizationID = new SelectList(db.Organizations, "OrganizationID", "Name");
             ViewBag.Grants = GetSelectedGrants(new Grant[0]);
             return View();
@@ -61,6 +79,8 @@ namespace MIM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "GroupID,Name,Description")] Group group, int[] GrantIDS)
         {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Create", "Groups");
+            if (!grant) return View("");
             if (GrantIDS != null)
                 foreach (var item in GrantIDS)
                     group.Grants.Add(db.Grants.FirstOrDefault(x => x.GrantID == item));
@@ -94,6 +114,8 @@ namespace MIM.Controllers
         // GET: Groups/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Edit", "Groups");
+            if (!grant) return View("");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -114,6 +136,8 @@ namespace MIM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "GroupID,Name,Description")] Group group, int[] GrantIDS)
         {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Edit", "Groups");
+            if (!grant) return View("");
             group.OrganizationID = Organization.current.OrganizationID;
             DBHelper dbh = new DBHelper();
 
@@ -134,6 +158,8 @@ namespace MIM.Controllers
         // GET: Groups/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Delete", "Groups");
+            if (!grant) return View("");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -151,7 +177,13 @@ namespace MIM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Delete", "Groups");
+            if (!grant) return View("");
             Group group = await db.Groups.FindAsync(id);
+            foreach (var user in group.Users.ToList())
+            {
+                group.Users.Remove(user);
+            }
             db.Groups.Remove(group);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

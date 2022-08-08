@@ -28,21 +28,35 @@ namespace MIM.Controllers
             return View(await users.ToListAsync());
         }
 
-        // GET: /Users/Table
-        public ActionResult Table(int? page)
+        public IPagedList<User> GetUserList(User user, int? page)
         {
-            if (!MIM.Models.User.current.isGranted("Table", "Users")) return View();
             var _page = page ?? 1;
-            var users = db.Users.Include(u => u.Organization).Where(x => x.OrganizationID == Organization.current.OrganizationID).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
-            ViewBag.TitleID = new SelectList(db.Titles, "TitleID", "Name");
-            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "Name");
+            var users = db.Users.Include(u => u.Organization).Where(x => x.OrganizationID == Organization.current.OrganizationID);
+            IPagedList<User> filtering_user = users.ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (user.UserID > 0) filtering_user = filtering_user.Where(x => x.UserID == user.UserID).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (user.Firstname !=null) filtering_user = filtering_user.Where(x => x.Firstname.Contains(user.Firstname)).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (user.Lastname != null) filtering_user = filtering_user.Where(x => x.Lastname.Contains(user.Lastname)).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (user.TitleID != null) filtering_user = filtering_user.Where(x => x.TitleID == user.TitleID).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            if (user.DepartmentID != null) filtering_user = filtering_user.Where(x => x.DepartmentID == user.DepartmentID).ToList().ToPagedList(_page, MvcApplication.ListPerPage);
+            return filtering_user;
+        }
+
+        // GET: /Users/Table
+        public ActionResult Table(User user, int? page)
+        {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Table", "Users");
+            if (!grant) return View("");
+            var users = GetUserList(user, page);
+            ViewBag.TitleID = new SelectList(db.Titles.Where(x => x.OrganizationID == Organization.current.OrganizationID), "TitleID", "Name");
+            ViewBag.DepartmentID = new SelectList(db.Departments.Where(x => x.OrganizationID == Organization.current.OrganizationID), "DepartmentID", "Name");
             return View(users);
         }
 
         // GET: /Users/Show/5
         public async Task<ActionResult> Show(int? id)
         {
-            if (!MIM.Models.User.current.isGranted("Show", "Users")) return View();
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Show", "Users");
+            if (!grant) return View("");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -58,17 +72,21 @@ namespace MIM.Controllers
         // GET: /Users/Create
         public ActionResult Create()
         {
-            if (!MIM.Models.User.current.isGranted("Create", "Users")) return View("");
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Create", "Users");
+            if (!grant) return View("");
             ViewBag.Groups = GetSelectedGroups(new Group[0]);
-            ViewBag.titleID = new SelectList(db.Titles, "TitleID", "Name");
-            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "Name");
+            ViewBag.titleID = new SelectList(db.Titles.Where(x => x.OrganizationID == Organization.current.OrganizationID), "TitleID", "Name");
+            ViewBag.DepartmentID = new SelectList(db.Departments.Where(x => x.OrganizationID == Organization.current.OrganizationID), "DepartmentID", "Name");
             return View();
         }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "UserID,TitleID,Firstname,Lastname,Nickname,Username,Password,Email,IsActive,BornDate,SuperAdmin,AvatarUrl,DepartmentID,Groups")] User user,int[] GroupIDS,HttpPostedFileBase fb)
-        {   
+        {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Create", "Users");
+            if (!grant) return View("");
+
             if (GroupIDS != null)            
                 foreach (var item in GroupIDS)                
                     user.Groups.Add(db.Groups.FirstOrDefault(x => x.GroupID == item)); 
@@ -82,8 +100,8 @@ namespace MIM.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Groups = GetSelectedGroups(new Group[0]);
-            ViewBag.TitleID = new SelectList(db.Titles, "TitleID", "Name");
-            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "Name");
+            ViewBag.TitleID = new SelectList(db.Titles.Where(x => x.OrganizationID == Organization.current.OrganizationID), "TitleID", "Name");
+            ViewBag.DepartmentID = new SelectList(db.Departments.Where(x => x.OrganizationID == Organization.current.OrganizationID), "DepartmentID", "Name");
             return View(user);
         }
         public List<SelectListItem> GetSelectedGroups(Group[] groups)
@@ -104,7 +122,8 @@ namespace MIM.Controllers
         // GET: Users/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            if (!MIM.Models.User.current.isGranted("Edit", "Users")) return View();
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Edit", "Users");
+            if (!grant) return View("");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -117,19 +136,30 @@ namespace MIM.Controllers
                 return HttpNotFound();
             }
             ViewBag.fb = user.AvatarUrl;
-            ViewBag.TitleID = new SelectList(db.Titles, "TitleID", "Name");
-            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "Name");
+            ViewBag.TitleID = new SelectList(db.Titles.Where(x => x.OrganizationID == Organization.current.OrganizationID), "TitleID", "Name");
+            ViewBag.DepartmentID = new SelectList(db.Departments.Where(x => x.OrganizationID == Organization.current.OrganizationID), "DepartmentID", "Name");
             return View(user);
         }
 
         // POST: Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "UserID,TitleID,Firstname,Lastname,Nickname,Username,Password,Email,IsActive,BornDate,SuperAdmin,DepartmentID,Groups")] User user, int[] GroupIDS)
+        public async Task<ActionResult> Edit([Bind(Include = "UserID,TitleID,Firstname,Lastname,Nickname,Username,Password,Email,IsActive,BornDate,SuperAdmin,DepartmentID,Groups,AvatarUrl")] User user, int[] GroupIDS, HttpPostedFileBase fb)
         {
-            if (!MIM.Models.User.current.isGranted("Edit", "Users")) return View();
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Edit", "Users");
+            if (!grant) return View("");
 
             user.OrganizationID = Organization.current.OrganizationID;
+            if (fb != null)
+            {
+                dbh.DeleteImage(user.AvatarUrl);
+                user.AvatarUrl = dbh.AddImage(fb, "AvatarImages/", true);
+            }
+            else
+            {
+                dbh.DeleteImage(user.AvatarUrl);
+                user.AvatarUrl = null;
+            }
             dbh.UpdateGroups(user.UserID, GroupIDS);
 
             if (ModelState.IsValid)
@@ -140,15 +170,18 @@ namespace MIM.Controllers
             }
 
             ViewBag.Groups = GetSelectedGroups(user.Groups.ToArray());
-            ViewBag.TitleID = new SelectList(db.Titles, "TitleID", "Name");
-            ViewBag.DepartmentID = new SelectList(db.Departments, "DepartmentID", "Name");
+            ViewBag.TitleID = new SelectList(db.Titles.Where(x => x.OrganizationID == Organization.current.OrganizationID), "TitleID", "Name");
+            ViewBag.DepartmentID = new SelectList(db.Departments.Where(x => x.OrganizationID == Organization.current.OrganizationID), "DepartmentID", "Name");
             return View(user);
         }
 
         // GET: Users/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
-            if (!MIM.Models.User.current.isGranted("Delete", "Users")) return View();
+            ViewBag.owner = false;
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Delete", "Users");
+            if (!grant) return View("");
+            ViewBag.owner = (id == ((int)Session["current_userID"]));
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -166,7 +199,15 @@ namespace MIM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
+            bool grant = ViewBag.grant = MIM.Models.User.Current().isGranted("Delete", "Users");
+            if (!grant) return View("");
             User user = await db.Users.FindAsync(id);
+
+            foreach (var group in user.Groups.ToList())
+            {
+                user.Groups.Remove(group);
+            }
+            dbh.DeleteImage(user.AvatarUrl);
             db.Users.Remove(user);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

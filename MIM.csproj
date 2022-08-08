@@ -424,8 +424,6 @@
     <Content Include="assets\js\pages\my-script.js" />
     <Content Include="assets\js\pages\widgets.js" />
     <Content Include="assets\js\scripts.bundle.js" />
-    <Content Include="assets\media\AvatarImages\39a7f226-d31f-4c3b-93d2-c18b70367ba8.png" />
-    <Content Include="assets\media\AvatarImages\5a0d83bb-dd65-435b-84bf-9884d1ddc63agoose1.png" />
     <Content Include="assets\media\bg\bg-1.jpg" />
     <Content Include="assets\media\bg\bg-10.jpg" />
     <Content Include="assets\media\bg\bg-11.jpg" />
@@ -2191,12 +2189,21 @@
     <Content Include="Scripts\chart.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\media\AvatarImages\" />
     <Folder Include="Views\Chart\" />
   </ItemGroup>
   <ItemGroup>
@@ -2324,14 +2331,6 @@
     <Content Include="Views\Groups\List.cshtml" />
     <Content Include="Views\Groups\pagination.cshtml" />
     <Content Include="Views\Groups\Table.cshtml" />
-    <Content Include="Web.config" />
-    <Content Include="Views\Web.config" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\language\lang.en.resx">

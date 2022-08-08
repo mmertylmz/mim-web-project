@@ -2179,6 +2179,12 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="screenshots\asidebar.png" />
+    <Content Include="screenshots\createnewuser.png" />
+    <Content Include="screenshots\loginpage.png" />
+    <Content Include="screenshots\quickuserwindow.png" />
+    <Content Include="screenshots\showuser.png" />
+    <Content Include="screenshots\userpage.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />

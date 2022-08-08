@@ -1,1 +1,1 @@
-beni oku.te iks te
+#Deneme

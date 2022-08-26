@@ -108,7 +108,7 @@ As mentioned above due to sticking with SOLID principle we can add new features.
 
 ![](screenshots/userpage.png)
 
-## Show a User
+## Show User
 
 ![](screenshots/showuser.png)
 

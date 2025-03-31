@@ -85,3 +85,8 @@ modernizr*.js linguist-vendored
 *.cs linguist-language=C#
 *.cshtml linguist-language=C#
 *.razor linguist-language=C#
+*.cs linguist-detectable=true
+*.cshtml linguist-detectable=true
+*.razor linguist-detectable=true
+*.js linguist-detectable=false
+*.css linguist-detectable=false

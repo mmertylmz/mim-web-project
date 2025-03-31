@@ -61,3 +61,27 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+assets/* linguist-vendored
+Scripts/* linguist-vendored
+packages/* linguist-vendored
+Content/* linguist-vendored
+*.nupkg linguist-vendored
+bower_components/* linguist-vendored
+node_modules/* linguist-vendored
+lib/* linguist-vendored
+vendors/* linguist-vendored
+dist/* linguist-vendored
+wwwroot/lib/* linguist-vendored
+fonts/* linguist-vendored
+images/* linguist-vendored
+*.min.js linguist-vendored
+*.min.css linguist-vendored
+jquery*.js linguist-vendored
+bootstrap*.js linguist-vendored
+bootstrap*.css linguist-vendored
+modernizr*.js linguist-vendored
+
+*.cs linguist-language=C#
+*.cshtml linguist-language=C#
+*.razor linguist-language=C#
